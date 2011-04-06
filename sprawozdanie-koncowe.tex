@@ -53,11 +53,42 @@ aproksymujących zadany ciąg danych pomiarowych.
 
 \section{Zmiany w~funkcjonalności}
 Możliwości programu nie odbiegają od funkcjonalności opisanej w~specyfikacji
-funkcjonalnej projektu.
+funkcjonalnej projektu, oprócz formatu pliku tworzonego dla {\tt gnuplot}.
 
 \subsection{Plik dla \texttt{gnuplot}}
-Zmianił się szablon pliku tworzonych przez program opisany
-w~rozdziale~\ref{func-sec:plik_gnuplot} specyfikacji funkcjonalnej.
+Zmienił się szablon pliku tworzonych przez program opisany
+w~rozdziale~\ref{func-sec:plik_gnuplot} specyfikacji funkcjonalnej:
+\begin{SmallVerbatim}
+    # created at: Wed Apr  6 19:56:50 2011
+    #       file: correct.plt
+    set term pdf
+    set output "correct.pdf"
+    set nokey
+    set notitle
+    set grid
+
+    set parametric
+
+    x0 = 1; y0 = 2;
+    x1 = 3; y1 = 3.5;
+    x2 = 5; y2 = 3.7;
+
+    x0(t) = x0+(x1-x0)*t;
+    x1(t) = x1+(x2-x1)*t;
+    x2(t) = x2+(x3-x2)*t;
+
+    fun0(x) =   1.128125 +   0.790625*x +   0.121875*x**2 +  -0.040625*x**3
+    fun1(x) =  -1.065625 +   2.984375*x +  -0.609375*x**2 +   0.040625*x**3
+
+    plot [t=0:1]\
+      x0(t), fun0(x0(t)),\
+      x1(t), fun1(x1(t)),\
+      "-" with points
+        1 2
+        3 3.5
+        5 3.7
+      e
+\end{SmallVerbatim}
 
 \section{Zmiany w~implementacji}
 
