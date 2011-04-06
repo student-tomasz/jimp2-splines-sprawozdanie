@@ -91,6 +91,32 @@ w~rozdziale~\ref{func-sec:plik_gnuplot} specyfikacji funkcjonalnej:
 \end{SmallVerbatim}
 
 \section{Zmiany w~implementacji}
+Projekt implementacji też nie zmienił się znacznie.
+
+\subsection{Moduł {\tt List}}
+Dodany został nowy moduł oferujący listę jednokierunkową.
+\begin{SmallVerbatim}
+    typedef struct list_s {
+      struct list_s *next;
+      void *data;
+    } list_t;
+
+    list_t *list_add(list_t *head, void *data);
+    int list_length(list_t *head);
+\end{SmallVerbatim}
+
+Lista jest wykorzystywana wszędzie gdzie miały być wykorzystywane tablice
+wskaźników tj. w~module \texttt{IO} (par.~\ref{impl-sec:modul_io} specyfikacji
+implementacyjnej):
+\begin{SmallVerbatim}
+    list_t *io_read();
+    int io_write(list_t *nodes, list_t *splines);
+    int io_gnuplot(list_t *nodes, list_t *splines);
+\end{SmallVerbatim}
+oraz w~module \texttt{Interpolation}:
+\begin{SmallVerbatim}
+    list_t *spline_interpolate(list_t *nodes);
+\end{SmallVerbatim}
 
 \section{Ograniczenia programu}
 
