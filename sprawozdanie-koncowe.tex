@@ -119,7 +119,12 @@ oraz w~module \texttt{Interpolation}:
 \end{SmallVerbatim}
 
 \section{Ograniczenia programu}
+Program w~niefektywny sposób przechowuje w~pamięci macierz do wyznaczania
+współczynników szukanych wielomianów. W~przypadku dużej ilości danych, czas
+wykonywania może być zauważalny.
 
 \section{Testy}
+Pakiet testów jest umieszczony w~folderze {\tt src/test}.\\
+Kompilacja i~wywołanie: {\tt rake test}.
 
 \end{document}
