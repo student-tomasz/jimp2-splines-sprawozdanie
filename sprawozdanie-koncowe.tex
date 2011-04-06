@@ -10,6 +10,10 @@
 \usepackage{amsfonts}
 \usepackage[pdfborder={0 0 0}]{hyperref}
 
+\usepackage{xr}
+\externaldocument[func-]{../func/specyfikacja-funkcjonalna}
+\externaldocument[impl-]{../impl/specyfikacja-implementacyjna}
+
 %% tweak fonts
 \defaultfontfeatures{Mapping=tex-text}
 \setromanfont{Charis SIL}
@@ -48,6 +52,12 @@ aproksymujących zadany ciąg danych pomiarowych.
 \vspace{24pt}
 
 \section{Zmiany w~funkcjonalności}
+Możliwości programu nie odbiegają od funkcjonalności opisanej w~specyfikacji
+funkcjonalnej projektu.
+
+\subsection{Plik dla \texttt{gnuplot}}
+Zmianił się szablon pliku tworzonych przez program opisany
+w~rozdziale~\ref{func-sec:plik_gnuplot} specyfikacji funkcjonalnej.
 
 \section{Zmiany w~implementacji}
 
