@@ -91,10 +91,10 @@ w~rozdziale~\ref{func-sec:plik_gnuplot} specyfikacji funkcjonalnej:
 \end{SmallVerbatim}
 
 \section{Zmiany w~implementacji}
-Projekt implementacji też nie zmienił się znacznie.
+Implementacja została rozszerzona o~generyczną listę jednokierunkową.
 
 \subsection{Moduł {\tt List}}
-Dodany został nowy moduł oferujący listę jednokierunkową.
+Moduł zawiera listę jednokierunkową:
 \begin{SmallVerbatim}
     typedef struct list_s {
       struct list_s *next;
@@ -120,11 +120,11 @@ oraz w~module \texttt{Interpolation}:
 
 \section{Ograniczenia programu}
 Program w~niefektywny sposób przechowuje w~pamięci macierz do wyznaczania
-współczynników szukanych wielomianów. W~przypadku dużej ilości danych, czas
-wykonywania może być zauważalny.
+współczynników szukanych wielomianów. W~przypadku dużej ilości danych ($> 1k$
+punktów, czas wykonywania może być zauważalny.
 
 \section{Testy}
-Pakiet testów jest umieszczony w~folderze {\tt src/test}.\\
-Kompilacja i~wywołanie: {\tt rake test}.
+Pakiet testów jest umieszczony w~folderze {\tt ./test/}.\\
+Kompilacja i~wywołanie: {\tt rake test} w~folderze {\tt ./src/}.
 
 \end{document}
